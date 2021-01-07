@@ -1,0 +1,1806 @@
+  [1m[35m (2.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20201129130432)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "password" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201129130432"]]
+  [1m[35m (12.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-11-29 13:11:06.560135"], ["updated_at", "2020-11-29 13:11:06.560135"]]
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/articles" for ::1 at 2020-11-29 14:16:10 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-11-29 14:16:24 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 1360)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/eric/Documents/Microverse/rails_project/members-only_solo/public/packs
+[Webpacker] Hash: 15d1bb7b54cf6326b9ba
+Version: webpack 4.44.2
+Time: 2261ms
+Built at: 11/29/2020 2:16:28 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-9afcbb5693aa87623e69.js    124 KiB  application  [emitted] [immutable]  application
+js/application-9afcbb5693aa87623e69.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-9afcbb5693aa87623e69.js js/application-9afcbb5693aa87623e69.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 3918ms (Views: 3913.8ms | ActiveRecord: 1.0ms | Allocations: 23279)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 14:16:41 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 29.0ms | Allocations: 6406)
+  Rendered users/new.html.erb within layouts/application (Duration: 30.6ms | Allocations: 6735)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 39.0ms | ActiveRecord: 0.6ms | Allocations: 13428)
+
+
+Started GET "/users" for ::1 at 2020-11-29 14:16:59 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 646)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.0ms | ActiveRecord: 0.4ms | Allocations: 4077)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 14:19:36 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.8ms | Allocations: 871)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4366)
+
+
+Started POST "/users" for ::1 at 2020-11-29 14:19:39 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"ETKdAmReAPGHMKVHm7o7Qslmfetw4UP1MAX8peY8gQtdqmns1qsBgC9fCbXlgHcSMPLwvuDIPhnXOJSfKKoiZQ==", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["email", ""], ["password", ""], ["created_at", "2020-11-29 13:19:39.857149"], ["updated_at", "2020-11-29 13:19:39.857149"]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (16.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 31ms (ActiveRecord: 17.0ms | Allocations: 5239)
+
+
+Started GET "/users/1" for ::1 at 2020-11-29 14:19:39 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 4771)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 14:22:33 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 6.5ms | Allocations: 1453)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.9ms | Allocations: 1783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 39ms (Views: 18.8ms | ActiveRecord: 1.8ms | Allocations: 10454)
+
+
+Started POST "/users" for ::1 at 2020-11-29 14:23:23 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mI2V8Rki/x3zOOGUOAnM4JUhWvpgjyNbXlItX0nruVPUFWEfq9f+bFtXTWZGM4CwbLXXr/CmXre5b0Vlh30aPQ==", "user"=>{"name"=>"Eric", "email"=>"eric@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms | Allocations: 3878)
+
+
+  
+NoMethodError (undefined method `username' for #<User:0x00007ff3d40bfc28>):
+  
+app/controllers/users_controller.rb:30:in `block in create'
+app/controllers/users_controller.rb:29:in `create'
+Started POST "/users" for ::1 at 2020-11-29 14:24:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"mI2V8Rki/x3zOOGUOAnM4JUhWvpgjyNbXlItX0nruVPUFWEfq9f+bFtXTWZGM4CwbLXXr/CmXre5b0Vlh30aPQ==", "user"=>{"name"=>"Eric", "email"=>"eric@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Eric"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "eric@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Eric"], ["email", "eric@gmail.com"], ["password", "Eric1234"], ["created_at", "2020-11-29 13:24:26.467845"], ["updated_at", "2020-11-29 13:24:26.467845"]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/users/2
+Completed 302 Found in 40ms (ActiveRecord: 9.9ms | Allocations: 11952)
+
+
+Started GET "/users/2" for ::1 at 2020-11-29 14:24:26 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 271)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 9.3ms | ActiveRecord: 0.4ms | Allocations: 4684)
+
+
+Started GET "/users/2/edit" for ::1 at 2020-11-29 14:24:40 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.8ms | Allocations: 947)
+  Rendered users/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1185)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.4ms | ActiveRecord: 0.2ms | Allocations: 5262)
+
+
+Started GET "/users" for ::1 at 2020-11-29 14:24:44 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1183)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 4730)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 14:24:46 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.0ms | Allocations: 871)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 953)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.0ms | ActiveRecord: 0.0ms | Allocations: 4375)
+
+
+Started POST "/users" for ::1 at 2020-11-29 14:24:49 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"6KK1bD0EXX4CWA/tX/9oAwDuy77MDY+w9CcJ2ZpKX604xSViQqFGavqCG0Vr1dt1TUqkWLM6Bf5O1e0Hsg0jFQ==", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.1ms | Allocations: 2030)
+  Rendered users/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 2112)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 11.8ms | ActiveRecord: 0.7ms | Allocations: 12455)
+
+
+Started GET "/users" for ::1 at 2020-11-29 14:25:16 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 895)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.2ms | Allocations: 4323)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 17:09:12 +0100
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 15.0ms | Allocations: 4457)
+  Rendered users/new.html.erb within layouts/application (Duration: 17.0ms | Allocations: 4907)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 60ms (Views: 36.0ms | ActiveRecord: 1.4ms | Allocations: 16706)
+
+
+Started GET "/" for ::1 at 2020-11-29 17:10:08 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/f2ffdbad855074b8/variables" for ::1 at 2020-11-29 17:10:08 +0100
+Started GET "/" for ::1 at 2020-11-29 17:13:21 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/352ddcbed45f9d74/variables" for ::1 at 2020-11-29 17:13:21 +0100
+Started GET "/" for ::1 at 2020-11-29 17:22:22 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/1cfdde5ee4e6a169/variables" for ::1 at 2020-11-29 17:22:22 +0100
+Started GET "/users" for ::1 at 2020-11-29 17:22:40 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 17.8ms | Allocations: 4698)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 28.8ms | ActiveRecord: 1.9ms | Allocations: 9243)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 17:23:09 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.9ms | Allocations: 873)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 955)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 4420)
+
+
+Started POST "/users" for ::1 at 2020-11-29 17:23:33 +0100
+Processing by UsersController#create as HTML
+  Parameters: {"authenticity_token"=>"WYxhFR6XPDFZnfsLK4PAw1tKvOet7x4m/TntWlfqQQ+J6/EbYTInJaFH76MfqXO1Fu7TAdLYlGhHywmEf609tw==", "user"=>{"name"=>"Gzim", "email"=>"gzim@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "Gzim"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "gzim@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "password", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Gzim"], ["email", "gzim@gmail.com"], ["password", "Gzim123"], ["created_at", "2020-11-29 16:23:33.831045"], ["updated_at", "2020-11-29 16:23:33.831045"]]
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/users/3
+Completed 302 Found in 25ms (ActiveRecord: 8.7ms | Allocations: 7897)
+
+
+Started GET "/users/3" for ::1 at 2020-11-29 17:23:33 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 276)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.0ms | ActiveRecord: 0.3ms | Allocations: 4585)
+
+
+Started GET "/users" for ::1 at 2020-11-29 17:23:44 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1043)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 4528)
+
+
+Started GET "/users/3" for ::1 at 2020-11-29 17:23:52 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 83)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.7ms | ActiveRecord: 0.2ms | Allocations: 4069)
+
+
+Started GET "/users" for ::1 at 2020-11-29 17:23:55 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1034)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.2ms | Allocations: 4500)
+
+
+Started DELETE "/users/1" for ::1 at 2020-11-29 17:24:01 +0100
+Processing by UsersController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ARskvX2vldPhMiyGV0+KMjtDGtCVJwvaHujxoafAjLJNg9BTz1qUokldgHQpdcZiwteXhQUOdjb51ZmbaVYv3A==", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:67:in `set_user'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[36mUser Destroy (4.5ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:57:in `destroy'
+Redirected to http://localhost:3000/users
+Completed 302 Found in 24ms (ActiveRecord: 12.6ms | Allocations: 5069)
+
+
+Started GET "/users" for ::1 at 2020-11-29 17:24:01 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 904)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.2ms | Allocations: 4385)
+
+
+Started GET "/users" for ::1 at 2020-11-29 17:27:31 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 14.8ms | Allocations: 4397)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 2.4ms | Allocations: 8780)
+
+
+Started GET "/" for ::1 at 2020-11-29 17:32:23 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/8752a076829a4402/variables" for ::1 at 2020-11-29 17:32:23 +0100
+Started GET "/users" for ::1 at 2020-11-29 17:32:46 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 901)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.2ms | Allocations: 4367)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20201129170511)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20201129170511)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20201129170511)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddDeviseToUsers (20201129170511)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20201129130432)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[36mprimary::SchemaMigration Destroy (0.4ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20201129130432"]]
+  [1m[35m (10.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20201129130432)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201129130432"]]
+  [1m[35m (14.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddDeviseToUsers (20201129170511)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "email" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "encrypted_password" varchar DEFAULT '' NOT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" varchar[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_sent_at" datetime[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_created_at" datetime[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201129170511"]]
+  [1m[35m (21.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for ::1 at 2020-11-29 18:29:24 +0100
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1605)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 27.3ms | ActiveRecord: 1.0ms | Allocations: 9363)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 18:29:29 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 8.2ms | Allocations: 3557)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.6ms | Allocations: 3891)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 23.5ms | ActiveRecord: 0.7ms | Allocations: 12257)
+
+
+Started POST "/users" for ::1 at 2020-11-29 18:30:01 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"jwujHDcltppxYeBQJ8Nl7j4rk3iQmAYJUwGjZG0njV9fbDMSSICtjom79PgT6daYc4/8nu+vjEfp80e6RWDx5w==", "user"=>{"name"=>"Stanley", "email"=>"stan@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :name[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 13.4ms | Allocations: 524)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 513)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 22.2ms | Allocations: 3137)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 371ms (Views: 34.0ms | ActiveRecord: 0.6ms | Allocations: 20702)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 18:30:27 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 201)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 17.0ms | Allocations: 1838)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 27.5ms | ActiveRecord: 0.0ms | Allocations: 6336)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 18:31:06 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"i57yg4M6C7LDPUcwoGUMwzxia43rFgiLfz20ZhwkTgkVEwFDe4smkvB0mwr9Xa6NgQ4cNz58uXFUPjHBbizRDg==", "user"=>{"email"=>"eric@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "eric@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 16ms (ActiveRecord: 0.3ms | Allocations: 4319)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"i57yg4M6C7LDPUcwoGUMwzxia43rFgiLfz20ZhwkTgkVEwFDe4smkvB0mwr9Xa6NgQ4cNz58uXFUPjHBbizRDg==", "user"=>{"email"=>"eric@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1032)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 331ms (Views: 9.6ms | ActiveRecord: 0.0ms | Allocations: 4609)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-11-29 18:31:13 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 15)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 80)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1044)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.1ms | ActiveRecord: 0.0ms | Allocations: 4677)
+
+
+Started POST "/users" for ::1 at 2020-11-29 18:31:52 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"24j5wyXgTkIpTon2NmFS5lW37lmv/3nFV7uWlS8KV8oL72nNWkVVVtGUnV4CS+GQGBOBv9DI84vtSXJLB00rcg==", "user"=>{"email"=>"stan@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 1.2ms | Allocations: 334)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 79)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1353)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 335ms (Views: 13.1ms | ActiveRecord: 0.8ms | Allocations: 14172)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 18:32:06 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.6ms | Allocations: 881)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 964)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4442)
+
+
+Started POST "/users" for ::1 at 2020-11-29 18:32:41 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"x5T1D/J6hUwGVpFkbQt3T617R4gC/rt5V+FlqzKpDaeLDAHhQI+EPa45PZYTMTsfVO/K3ZLXxpWw3A2R/D+uyQ==", "user"=>{"name"=>"Stanley", "email"=>"stan@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :name[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "stan@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 1.4ms | Allocations: 334)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 79)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1354)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 353ms (Views: 22.4ms | ActiveRecord: 0.8ms | Allocations: 14206)
+
+
+Started GET "/users" for ::1 at 2020-11-29 18:33:12 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 642)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 4107)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 18:33:15 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.0ms | Allocations: 873)
+  Rendered users/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 955)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.0ms | Allocations: 4437)
+
+
+Started POST "/users" for ::1 at 2020-11-29 18:33:19 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"kEhcci58g7xeBTvxEjY1SLu3neoHSTZtB655awBBwfhAL8x8UdmYqKbfL1kmHIY+9hPyDHh+vCO9XJ21KAa9QA==", "user"=>{"name"=>"", "email"=>"", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+[31mUnpermitted parameter: :name[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 3.7ms | Allocations: 1198)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 79)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2222)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 14.4ms | ActiveRecord: 0.8ms | Allocations: 15604)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 18:33:23 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 4715)
+
+
+Started GET "/users" for ::1 at 2020-11-29 19:02:50 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1605)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 36ms (Views: 26.1ms | ActiveRecord: 0.9ms | Allocations: 9422)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 19:02:52 +0100
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 9.5ms | Allocations: 3557)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.9ms | Allocations: 3891)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 41ms (Views: 22.1ms | ActiveRecord: 0.7ms | Allocations: 12257)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFieldsToUsers (20201129183056)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "username" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_username" ON "users" ("username")[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201129183056"]]
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users/new" for ::1 at 2020-11-29 19:38:48 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+Completed 401 Unauthorized in 11ms (ActiveRecord: 0.0ms | Allocations: 1204)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 19:38:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 597)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2942)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 28.6ms | ActiveRecord: 1.0ms | Allocations: 17081)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-11-29 19:39:17 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 2.0ms | Allocations: 195)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 119)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1876)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 19.4ms | ActiveRecord: 0.0ms | Allocations: 6300)
+
+
+Started POST "/users" for ::1 at 2020-11-29 19:39:55 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"8iyryV7USI+It98SZyDQ5mgHigMmO7TBAwbfm6OaaVsiSzvHIXFTm3Bty7pTCmOQJaPl5VkMPo+59DtFi90V4w==", "user"=>{"email"=>"dazzy@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dazzy@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "dazzy@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 1.0ms | Allocations: 346)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 79)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1372)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 343ms (Views: 11.3ms | ActiveRecord: 0.5ms | Allocations: 16929)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 19:40:22 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 4737)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 19:40:25 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"NqMVYTIUDcUDNu51270MdexRwCETweo2u9KnXzwoNL2oLuahyqUg5TB/Mk+Gha47UT23m8arW8yQ0SL4TiCrug==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 471)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"NqMVYTIUDcUDNu51270MdexRwCETweo2u9KnXzwoNL2oLuahyqUg5TB/Mk+Gha47UT23m8arW8yQ0SL4TiCrug==", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1029)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 4626)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 19:40:38 +0100
+Processing by UsersController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 332)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 19:40:38 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.0ms | Allocations: 4783)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 19:42:22 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lwLqb9HcsVWmUJKeHhWpK85TgaJv6HcB1dLv4MIoE4Tbmh6BYymwJA4/PmxgL+V7N8cM9//BCu0y74faDL6w6g==", "user"=>{"email"=>"eric@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "eric@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 18ms (ActiveRecord: 1.0ms | Allocations: 3020)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"lwLqb9HcsVWmUJKeHhWpK85TgaJv6HcB1dLv4MIoE4Tbmh6BYymwJA4/PmxgL+V7N8cM9//BCu0y74faDL6w6g==", "user"=>{"email"=>"eric@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 143)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1142)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 324ms (Views: 10.1ms | ActiveRecord: 0.0ms | Allocations: 9671)
+
+
+Started GET "/users/sign_up" for ::1 at 2020-11-29 19:42:29 +0100
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 15)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 90)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1057)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 4895)
+
+
+Started POST "/users" for ::1 at 2020-11-29 19:42:57 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"lc1FheJcuSIGESmk4+CgwI2pzyGuIn5FDm3jQRWhcalFqtWLnfmiNv7LPQzXyhO2wA2gx9EV9Au0nwefPeYNEQ==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("created_at", "updated_at", "email", "encrypted_password") VALUES (?, ?, ?, ?)[0m  [["created_at", "2020-11-29 18:42:58.133367"], ["updated_at", "2020-11-29 18:42:58.133367"], ["email", "ericenaburekhanedu@gmail.com"], ["encrypted_password", "$2a$12$FI8pXbmhTBY8s5UBZyBWt.1gwBQlb0nvjAXFeMMo9HzlDh9bEooSm"]]
+  [1m[35m (14.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 331ms (ActiveRecord: 15.6ms | Allocations: 9817)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 19:42:58 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.6ms | Allocations: 1269)
+  Rendered users/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1601)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 15.5ms | ActiveRecord: 0.4ms | Allocations: 7264)
+
+
+Started POST "/users" for ::1 at 2020-11-29 19:47:44 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"MuX9755Gd8sWPQVHy1Eb7XLhplvV0MvPeoWohTCauuV+fQkBLLN2ur5SqbW1a1e9i3UrDkX5tiOduMC//gwZiw==", "user"=>{"name"=>"Eric", "email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.2ms | Allocations: 1885)
+
+
+Started GET "/" for ::1 at 2020-11-29 19:47:44 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/728352145a8352e5/variables" for ::1 at 2020-11-29 19:47:44 +0100
+Started GET "/users" for ::1 at 2020-11-29 19:48:27 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1074)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.2ms | Allocations: 4726)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 19:48:54 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 1.9ms | Allocations: 939)
+  Rendered users/edit.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1178)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 13.9ms | ActiveRecord: 0.4ms | Allocations: 6907)
+
+
+Started PATCH "/users/1" for ::1 at 2020-11-29 19:49:24 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"PCr1lTlLkvfWLCVD/gSyCynM8MiY+MD2Zh10k2YAEo5QFSF6BufcZ9tERrS6kjj8z/fyZoqiPriYhk5Q3Ihttw==", "user"=>{"name"=>"eric", "email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.5ms | Allocations: 1098)
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1210)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 19.3ms | ActiveRecord: 0.4ms | Allocations: 7963)
+
+
+Started GET "/users" for ::1 at 2020-11-29 19:49:30 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.2ms | Allocations: 4250)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 19:49:34 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.7ms | Allocations: 910)
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1022)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 0.5ms | Allocations: 6466)
+
+
+Started PATCH "/users/1" for ::1 at 2020-11-29 19:49:57 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"rJLLBUN07JIUkA6Uo9PCfymeHd62eM7o6hMDhRxUQN/ArR/qfNiiAhn4bWPnRUiIz6UfcKQiMKYUiDlGptw/5g==", "user"=>{"name"=>"Eric", "email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "name" = ?, "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["name", "Eric"], ["encrypted_password", "$2a$12$jNFXXM/6.vOWIxeBS2etN.oBBWaMmmYAIZIJox4HDSvY4HQxXrjiG"], ["updated_at", "2020-11-29 18:49:57.592004"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[35m (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 330ms (ActiveRecord: 9.7ms | Allocations: 6344)
+
+
+Started GET "/users/1" for ::1 at 2020-11-29 19:49:57 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 273)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 10.4ms | ActiveRecord: 0.3ms | Allocations: 4455)
+
+
+Started GET "/users" for ::1 at 2020-11-29 19:50:17 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 772)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.2ms | Allocations: 4248)
+
+
+Started GET "/users" for ::1 at 2020-11-29 19:59:31 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1058)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.3ms | Allocations: 5637)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 19:59:36 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (ActiveRecord: 0.2ms | Allocations: 1755)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 19:59:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 1.5ms | Allocations: 509)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 9.4ms | Allocations: 1928)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 6776)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 19:59:53 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"5HDdnIvT29WxUjess7T4159VYoXOFius+FGbkZ8CTQN6/S5cc2L29YIb65bujFqZIjkVPxt8mlbTUh427QrSBA==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 308ms (ActiveRecord: 0.3ms | Allocations: 1955)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"5HDdnIvT29WxUjess7T4159VYoXOFius+FGbkZ8CTQN6/S5cc2L29YIb65bujFqZIjkVPxt8mlbTUh427QrSBA==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1035)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 312ms (Views: 9.9ms | ActiveRecord: 0.0ms | Allocations: 4650)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 20:00:15 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ggozBYDhPU0rSWBy6KX1mnOJMKlXSrDei3x+sedFnUbOksfrMhQ8PIMmzICWn7nKih29/MdjzTJsQRaLKdM+KA==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "remember_created_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["remember_created_at", "2020-11-29 19:00:15.867641"], ["updated_at", "2020-11-29 19:00:15.868007"], ["id", 1]]
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/users/new
+Completed 302 Found in 348ms (ActiveRecord: 8.5ms | Allocations: 13053)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 20:00:15 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 5.6ms | Allocations: 1468)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1796)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 12.9ms | ActiveRecord: 0.2ms | Allocations: 6864)
+
+
+Started POST "/users" for ::1 at 2020-11-29 20:01:21 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"2JZjsvj8u0yAAh3czToY77gScBFcPZWE3JH5I1QJxCknmt9K27pbvdLKjfugiyNa3oDBN2pEIc58wWvW0a7p4g==", "user"=>{"name"=>"Gzim", "username"=>"gzimma", "email"=>"Gzim@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.1ms | Allocations: 1856)
+
+
+Started GET "/" for ::1 at 2020-11-29 20:01:21 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/e68a007952ef1e98/variables" for ::1 at 2020-11-29 20:01:21 +0100
+Started GET "/users" for ::1 at 2020-11-29 20:01:33 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 5.5ms | Allocations: 774)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 22.5ms | ActiveRecord: 0.2ms | Allocations: 4283)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 20:01:46 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 7.5ms | Allocations: 1057)
+  Rendered users/new.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 25.5ms | ActiveRecord: 0.2ms | Allocations: 6067)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 20:02:11 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.6ms | Allocations: 1109)
+  Rendered users/edit.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1348)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 11.9ms | ActiveRecord: 0.5ms | Allocations: 6988)
+
+
+Started PATCH "/users/1" for ::1 at 2020-11-29 20:02:29 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"w/x+4SHsmpMTHjq4ZGn1GE2aqJ1S3Iyi3AeKFgXoFqcrBfg+54UbWEfWmWCXCFX6q9v17dkvhpr/5FvxQpD+xg==", "user"=>{"name"=>"Eric", "username"=>"ericsson", "email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :username[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$12$IiT56mEgQOoLcpcYordjIe7GsYmsDbzqJy00dTI5YC3hVc6A0hf1i"], ["updated_at", "2020-11-29 19:02:29.812796"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 331ms (ActiveRecord: 8.1ms | Allocations: 7350)
+
+
+Started GET "/users/1" for ::1 at 2020-11-29 20:02:29 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.1ms | Allocations: 266)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.2ms | Allocations: 4446)
+
+
+Started GET "/users" for ::1 at 2020-11-29 20:02:46 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 773)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.1ms | ActiveRecord: 0.2ms | Allocations: 4267)
+
+
+Started GET "/users" for ::1 at 2020-11-29 20:03:57 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1031)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.1ms | Allocations: 5624)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 20:04:00 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 10ms (ActiveRecord: 0.4ms | Allocations: 3816)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 20:04:00 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 509)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 5.0ms | Allocations: 1928)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 6765)
+
+
+Started GET "/users/password/new" for ::1 at 2020-11-29 20:04:12 +0100
+Processing by Devise::PasswordsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 187)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 138)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1346)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 20.3ms | ActiveRecord: 0.0ms | Allocations: 5700)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 20:04:29 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"yPqOSN6ZhmHRub6/CeaWkM+V6kYsra1mV1A1rLTFp48myFduhIaK4BtJIUkSDRCKB/H/LkQuJaZCVO0YBGTvXA==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/users/1/edit
+Completed 302 Found in 307ms (ActiveRecord: 0.3ms | Allocations: 3774)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 20:04:29 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.1ms | Allocations: 1477)
+  Rendered users/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1852)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 11.5ms | ActiveRecord: 0.3ms | Allocations: 7463)
+
+
+Started PATCH "/users/1" for ::1 at 2020-11-29 20:04:44 +0100
+Processing by UsersController#update as HTML
+  Parameters: {"authenticity_token"=>"neN13jDRRHyIvSxJWWJ+WzAljCs82UWg1enhxo3djWdrJL5fLi7JNDlJp6iSlVQOI0XvEfD6wvYMQTTPWMm2+w==", "user"=>{"name"=>"Eric", "username"=>"ericsson", "email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Update User", "id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[31mUnpermitted parameter: :username[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[36mUser Update (0.8ms)[0m  [1m[33mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["encrypted_password", "$2a$12$odjj66LCgAvkn7BeyCAflOUhW0rtgMDtsBBuJXDHoOcS.NbtiPFLa"], ["updated_at", "2020-11-29 19:04:44.505845"], ["id", 1]]
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+  [1m[35m (11.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:45:in `block in update'
+Redirected to http://localhost:3000/users/1
+Completed 302 Found in 329ms (ActiveRecord: 12.4ms | Allocations: 7313)
+
+
+Started GET "/users/1" for ::1 at 2020-11-29 20:04:44 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 288)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 4462)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 20:04:50 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.3ms | Allocations: 2279)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 20:04:50 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4774)
+
+
+Started GET "/users" for ::1 at 2020-11-29 20:05:05 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 772)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.2ms | Allocations: 4243)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20201129195348)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreatePosts (20201129195348)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Author_name" varchar, "body" text, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b5ddfd518"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_posts_on_user_id" ON "posts" ("user_id")[0m
+  [1m[36mprimary::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20201129195348"]]
+  [1m[35m (12.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ? LIMIT ?[0m  [["user_id", 1], ["LIMIT", 11]]
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = ?[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "The name Nigeria is acceptable to us"], ["user_id", 1], ["created_at", "2020-11-29 20:29:12.744900"], ["updated_at", "2020-11-29 20:29:12.744900"]]
+  [1m[35m (13.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Do we still believe in the Nigeria dream"], ["user_id", 1], ["created_at", "2020-11-29 20:31:54.421639"], ["updated_at", "2020-11-29 20:31:54.421639"]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/users" for ::1 at 2020-11-29 21:59:19 +0100
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 20.9ms | Allocations: 7092)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 90ms (Views: 81.7ms | ActiveRecord: 1.4ms | Allocations: 27809)
+
+
+Started GET "/posts" for ::1 at 2020-11-29 21:59:33 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 21.6ms | Allocations: 7779)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 1.0ms | Allocations: 9638)
+
+
+
+NoMethodError - undefined method `Author' for #<Post:0x000055f1e51e1310>
+Did you mean?  Author_name:
+  app/views/posts/index.html.erb:18
+  app/views/posts/index.html.erb:16
+
+Started POST "/__better_errors/d7ca27874c7ce1df/variables" for ::1 at 2020-11-29 21:59:33 +0100
+Started GET "/posts" for ::1 at 2020-11-29 22:00:44 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 174.3ms | Allocations: 81137)
+Completed 500 Internal Server Error in 180ms (ActiveRecord: 0.2ms | Allocations: 82449)
+
+
+
+NoMethodError - undefined method `post_path' for #<#<Class:0x000055f1e5da7af0>:0x000055f1e5da5b88>
+Did you mean?  posts_path
+               font_path
+               root_path:
+  app/views/posts/index.html.erb:21
+  app/views/posts/index.html.erb:16
+
+Started POST "/__better_errors/ac9dedf47da44dae/variables" for ::1 at 2020-11-29 22:00:45 +0100
+Started GET "/posts" for ::1 at 2020-11-29 22:07:13 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 190.5ms | Allocations: 98208)
+Completed 500 Internal Server Error in 195ms (ActiveRecord: 0.3ms | Allocations: 99530)
+
+
+
+NoMethodError - undefined method `edit_post_path' for #<#<Class:0x000055f1e62fbba0>:0x000055f1e62f92d8>
+Did you mean?  edit_user_path:
+  app/views/posts/index.html.erb:22
+  app/views/posts/index.html.erb:16
+
+Started POST "/__better_errors/c55c3fbbd6b36555/variables" for ::1 at 2020-11-29 22:07:14 +0100
+Started GET "/posts" for ::1 at 2020-11-29 22:07:49 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 170.0ms | Allocations: 98348)
+Completed 500 Internal Server Error in 175ms (ActiveRecord: 0.1ms | Allocations: 99660)
+
+
+
+NoMethodError - undefined method `edit_posts_path' for #<#<Class:0x000055f1e5641658>:0x000055f1e5637090>
+Did you mean?  edit_user_path:
+  app/views/posts/index.html.erb:22
+  app/views/posts/index.html.erb:16
+
+Started POST "/__better_errors/7706bf9232e4e49b/variables" for ::1 at 2020-11-29 22:07:49 +0100
+Started GET "/posts" for ::1 at 2020-11-29 22:09:22 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 181.9ms | Allocations: 97696)
+Completed 500 Internal Server Error in 185ms (ActiveRecord: 0.2ms | Allocations: 99018)
+
+
+
+NoMethodError - undefined method `post_path' for #<#<Class:0x000055f1e656dd20>:0x000055f1e656b250>
+Did you mean?  posts_path
+               font_path
+               root_path:
+  app/views/posts/index.html.erb:23
+  app/views/posts/index.html.erb:16
+
+Started POST "/__better_errors/58787747e568e407/variables" for ::1 at 2020-11-29 22:09:23 +0100
+Started GET "/posts" for ::1 at 2020-11-29 22:10:32 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1130)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.7ms | ActiveRecord: 0.1ms | Allocations: 5757)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-29 22:11:32 +0100
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.0ms | Allocations: 4249)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:11:32 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 593)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2813)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.0ms | Allocations: 7944)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-29 22:11:48 +0100
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 328)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:11:48 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1034)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 4825)
+
+
+Started GET "/users/1" for ::1 at 2020-11-29 22:12:31 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 294)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 0.2ms | Allocations: 7481)
+
+
+Started GET "/users/1/edit" for ::1 at 2020-11-29 22:12:36 +0100
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:68:in `set_user'
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.1ms | Allocations: 893)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:12:36 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1040)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.0ms | Allocations: 4821)
+
+
+Started GET "/post/new" for ::1 at 2020-11-29 22:13:24 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/post/new"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/posts/new" for ::1 at 2020-11-29 22:13:39 +0100
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 320)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:13:39 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms | Allocations: 4817)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-29 22:14:19 +0100
+Processing by PostsController#new as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 340)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:14:19 +0100
+Processing by Devise::SessionsController#new as HTML
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.0ms | Allocations: 4814)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 22:33:44 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"jpzTUtC2VSfmUGKDvuev2KzGr5oPS8Z1eSXZvBF7akB4WxjTzknYb1ek6WJ1EIWNv6bMoMNoQSOgjQy1xG9R3A==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 312ms (ActiveRecord: 0.4ms | Allocations: 2634)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"jpzTUtC2VSfmUGKDvuev2KzGr5oPS8Z1eSXZvBF7akB4WxjTzknYb1ek6WJ1EIWNv6bMoMNoQSOgjQy1xG9R3A==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 131)
+  Rendered /home/eric/.rbenv/versions/2.7.0/lib/ruby/gems/2.7.0/gems/devise-4.7.3/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1033)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 309ms (Views: 9.2ms | ActiveRecord: 0.0ms | Allocations: 4677)
+
+
+Started POST "/users/sign_in" for ::1 at 2020-11-29 22:33:53 +0100
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lXolIKkN5oQG4WuLbat4lKGQZIfTWPRefSvAoDLP2O5jve6ht/JrzLcV4GqmXFLBsvAHvR97cwikgxWp59vjcg==", "user"=>{"email"=>"ericenaburekhanedu@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "ericenaburekhanedu@gmail.com"], ["LIMIT", 1]]
+Redirected to http://localhost:3000/posts/new
+Completed 302 Found in 309ms (ActiveRecord: 0.2ms | Allocations: 3829)
+
+
+Started GET "/posts/new" for ::1 at 2020-11-29 22:33:53 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 370.3ms | Allocations: 191862)
+  Rendered posts/new.html.erb within layouts/application (Duration: 371.8ms | Allocations: 192171)
+Completed 500 Internal Server Error in 383ms (ActiveRecord: 0.3ms | Allocations: 196979)
+
+
+
+NameError - undefined local variable or method `name' for #<#<Class:0x000055f1e410ab40>:0x000055f1e4c2f6b0>:
+  app/views/posts/_form.html.erb:15
+  app/views/posts/_form.html.erb:1
+  app/views/posts/new.html.erb:3
+
+Started POST "/__better_errors/44f1bb4c1d09845b/variables" for ::1 at 2020-11-29 22:33:54 +0100
+Started GET "/posts/new" for ::1 at 2020-11-29 22:35:19 +0100
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 17.4ms | Allocations: 3889)
+  Rendered posts/new.html.erb within layouts/application (Duration: 19.4ms | Allocations: 4221)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 28.7ms | ActiveRecord: 0.1ms | Allocations: 10393)
+
+
+Started POST "/posts" for ::1 at 2020-11-29 22:36:01 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 218ms (ActiveRecord: 0.3ms | Allocations: 131333)
+
+
+
+NameError - undefined local variable or method `name' for #<PostsController:0x000055f1e5ff92b8>:
+  app/controllers/posts_controller.rb:73:in `post_params'
+  app/controllers/posts_controller.rb:28:in `create'
+
+Started POST "/__better_errors/64006e035a4bfbfa/variables" for ::1 at 2020-11-29 22:36:02 +0100
+Started POST "/posts" for ::1 at 2020-11-29 22:37:00 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[36mPost Create (1.3ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Nigeria must survive"], ["user_id", 1], ["created_at", "2020-11-29 21:37:00.156158"], ["updated_at", "2020-11-29 21:37:00.156158"]]
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[35m (14.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 328ms (ActiveRecord: 18.3ms | Allocations: 134785)
+
+
+
+NoMethodError - undefined method `post_url' for #<PostsController:0x000055f1e650adb0>
+Did you mean?  posts_url:
+  app/controllers/posts_controller.rb:32:in `block (2 levels) in create'
+  app/controllers/posts_controller.rb:30:in `create'
+
+Started POST "/__better_errors/366572a902b13200/variables" for ::1 at 2020-11-29 22:37:00 +0100
+Started POST "/posts" for ::1 at 2020-11-29 22:38:52 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Nigeria must survive"], ["user_id", 1], ["created_at", "2020-11-29 21:38:52.453109"], ["updated_at", "2020-11-29 21:38:52.453109"]]
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[35m (10.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 66ms (ActiveRecord: 13.5ms | Allocations: 17869)
+
+
+
+ActionController::ActionControllerError - Cannot redirect to nil!:
+  app/controllers/posts_controller.rb:32:in `block (2 levels) in create'
+  app/controllers/posts_controller.rb:30:in `create'
+
+Started POST "/__better_errors/ea16203a884b03b3/variables" for ::1 at 2020-11-29 22:38:52 +0100
+Started POST "/posts" for ::1 at 2020-11-29 22:39:26 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Nigeria must survive"], ["user_id", 1], ["created_at", "2020-11-29 21:39:26.887569"], ["updated_at", "2020-11-29 21:39:26.887569"]]
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[35m (11.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 15.3ms | Allocations: 17836)
+
+
+
+ActionController::ActionControllerError - Cannot redirect to nil!:
+  app/controllers/posts_controller.rb:32:in `block (2 levels) in create'
+  app/controllers/posts_controller.rb:30:in `create'
+
+Started POST "/__better_errors/5a7b2637a107c50a/variables" for ::1 at 2020-11-29 22:39:26 +0100
+Started POST "/posts" for ::1 at 2020-11-29 22:43:33 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Nigeria must survive"], ["user_id", 1], ["created_at", "2020-11-29 21:43:33.957811"], ["updated_at", "2020-11-29 21:43:33.957811"]]
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 241ms (ActiveRecord: 14.7ms | Allocations: 121830)
+
+
+
+NoMethodError - undefined method `post_url' for #<PostsController:0x000055f1e3c4e660>
+Did you mean?  posts_url:
+  app/controllers/posts_controller.rb:32:in `block (2 levels) in create'
+  app/controllers/posts_controller.rb:30:in `create'
+
+Started POST "/__better_errors/425419df22c7514d/variables" for ::1 at 2020-11-29 22:43:34 +0100
+Started POST "/posts" for ::1 at 2020-11-29 22:45:07 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"rYKwKXenVTC5QOg7KTqvMPZ/+vOX5i5PjziOL+VB6x6zDFg5N30lvSAhS4d6lsVRtUyDH/lvpEzXpJber55pog==", "post"=>{"Author_name"=>"Eric", "body"=>"Nigeria must survive", "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO "posts" ("Author_name", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["Author_name", "Eric"], ["body", "Nigeria must survive"], ["user_id", 1], ["created_at", "2020-11-29 21:45:07.651568"], ["updated_at", "2020-11-29 21:45:07.651568"]]
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/posts_controller.rb:31:in `block in create'
+Redirected to 
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 11.2ms | Allocations: 16342)
+
+
+
+ActionController::ActionControllerError - Cannot redirect to nil!:
+  app/controllers/posts_controller.rb:32:in `block (2 levels) in create'
+  app/controllers/posts_controller.rb:30:in `create'
+
+Started POST "/__better_errors/ba9bbae644a81c22/variables" for ::1 at 2020-11-29 22:45:07 +0100
+Started GET "/posts/new" for ::1 at 2020-11-29 22:48:06 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/_form.html.erb (Duration: 3.0ms | Allocations: 951)
+  Rendered posts/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1126)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 58ms (Views: 15.7ms | ActiveRecord: 3.7ms | Allocations: 17134)
+
+
+Started GET "/posts" for ::1 at 2020-11-29 22:48:13 +0100
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts"[0m
+  ↳ app/views/posts/index.html.erb:16
+  Rendered posts/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 1725)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 20.6ms | ActiveRecord: 0.3ms | Allocations: 5403)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 22:49:02 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 6.5ms | Allocations: 1562)
+  Rendered users/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 18.5ms | ActiveRecord: 0.6ms | Allocations: 7551)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 22:49:20 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 4.2ms | Allocations: 1057)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 15.4ms | ActiveRecord: 0.2ms | Allocations: 6125)
+
+
+Started POST "/users" for ::1 at 2020-11-29 22:50:05 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"ZWTHydOLlBcoetIHfojKDZ5gtLfFv2tJ8m+RzyexBwx76i/Zk1HkmrEbcbstJKBs3VPNW6s24Uqq84k+bW6FsA==", "user"=>{"name"=>"Gzim", "username"=>"gzimma", "email"=>"gzim@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 2006)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:50:05 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/f11a5a59728302e0/variables" for ::1 at 2020-11-29 22:50:05 +0100
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:50:28 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 7ms (ActiveRecord: 0.2ms | Allocations: 1977)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:50:28 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/595d13ef9779bf30/variables" for ::1 at 2020-11-29 22:50:28 +0100
+Started GET "/users" for ::1 at 2020-11-29 22:51:40 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1063)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.2ms | Allocations: 4774)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 22:51:45 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 2.9ms | Allocations: 1060)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1142)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 18.0ms | ActiveRecord: 0.2ms | Allocations: 6123)
+
+
+Started POST "/users" for ::1 at 2020-11-29 22:52:09 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"xFRdBJoOUWQk38O8SHSqmTQBwn8IT6omiV3eYp5ZDZF76vG+LojKKZx81tQ+iIHWiWmCk2kKsqWDDhf4lJt6sw==", "user"=>{"name"=>"Gzim", "username"=>"gzimma", "email"=>"gzim@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1854)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:52:09 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/423c81fa7b706a93/variables" for ::1 at 2020-11-29 22:52:09 +0100
+Started GET "/authors/new" for ::1 at 2020-11-29 22:52:39 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/authors/new"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-11-29 22:52:49 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/3d6c26d09a978c1b/variables" for ::1 at 2020-11-29 22:52:49 +0100
+Started GET "/users" for ::1 at 2020-11-29 22:53:38 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.5ms | ActiveRecord: 0.2ms | Allocations: 4336)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 22:53:48 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 3.7ms | Allocations: 1057)
+  Rendered users/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1139)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 19.3ms | ActiveRecord: 0.1ms | Allocations: 6116)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:54:02 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1855)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:54:02 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/831e0b70b0513a86/variables" for ::1 at 2020-11-29 22:54:02 +0100
+Started GET "/users" for ::1 at 2020-11-29 22:54:19 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 770)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.1ms | Allocations: 4345)
+
+
+Started GET "/users/sign_in" for ::1 at 2020-11-29 22:54:29 +0100
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 1863)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:54:29 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/dd762c917944146f/variables" for ::1 at 2020-11-29 22:54:29 +0100
+Started GET "/" for ::1 at 2020-11-29 22:58:48 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/73b6f9d636df498d/variables" for ::1 at 2020-11-29 22:58:48 +0100
+Started GET "/users" for ::1 at 2020-11-29 22:59:31 +0100
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/users/index.html.erb:16
+  Rendered users/index.html.erb within layouts/application (Duration: 28.9ms | Allocations: 7107)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 47.2ms | ActiveRecord: 1.0ms | Allocations: 15685)
+
+
+Started GET "/users/new" for ::1 at 2020-11-29 22:59:35 +0100
+Processing by UsersController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/_form.html.erb (Duration: 11.9ms | Allocations: 3739)
+  Rendered users/new.html.erb within layouts/application (Duration: 13.5ms | Allocations: 4073)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 26.1ms | ActiveRecord: 0.3ms | Allocations: 10977)
+
+
+Started POST "/users" for ::1 at 2020-11-29 22:59:59 +0100
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"Ar5kgtGd5urSqBGEVLbamrWGpUIOxghySXJTlS+4BYW9AMg4ZRt9p2oLBOwiSvHVCO7lrm+DEPFDIZoPJXpypw==", "user"=>{"name"=>"Gzim", "username"=>"gzimma", "email"=>"gzim@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Create User"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms | Allocations: 2038)
+
+
+Started GET "/" for ::1 at 2020-11-29 22:59:59 +0100
+
+ActionController::RoutingError - uninitialized constant HomeController:
+
+Started POST "/__better_errors/bc991ee8501f8d92/variables" for ::1 at 2020-11-29 22:59:59 +0100
